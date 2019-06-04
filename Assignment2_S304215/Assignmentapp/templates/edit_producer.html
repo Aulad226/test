@@ -1,0 +1,21 @@
+{% extends "site_base.html" %}
+{% load static %}
+
+{% block page_title %}Update Producer{% endblock %}
+
+{% block page_heading %}
+  <header class="blog-header py-3">
+    <h1>Update Producer</h1>
+  </header>
+{% endblock %}
+
+{% block main_body %}
+ <form action = "" method="POST" novalidate>
+   {% csrf_token%}
+   <table>
+     {{ my_form.as_table}}
+    </table>
+    <br>
+    <input type="submit" value="Edit Producer">
+    <br>
+{% endblock %}

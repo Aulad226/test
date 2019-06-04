@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% load static %}
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <title>
+    {% block page_title %}MusicWorld{% endblock %}
+  </title>
+</head>
+<body>
+  <div class="container">
+    {% block page_heading %}<h1>ERROR: No Heading Supplied</h1>{% endblock %}
+    <div class="nav">
+      <nav class="main-nav">
+        <a class="p-2 text-muted" href="{% url 'home' %}">Home</a>
+        <a class="p-2 text-muted" href="{% url 'song' %}">Song</a>
+        <a class="p-2 text-muted" href="{% url 'artist' %}">Artist</a>
+        <a class="p-2 text-muted" href="{% url 'producer' %}">Producer</a>
+      </nav>
+    </div>
+    {% block main_body %}{% endblock %}
+    <div class="footer">
+      <h3>© Developed by Aulad</h3>
+    </div>
+  </div>
+</body>
+</html>

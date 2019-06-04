@@ -1,0 +1,46 @@
+{% extends "site_base.html" %}
+{% load static %}
+
+{% block page_title %}Producer{% endblock %}
+
+{% block page_heading %}
+  <header class="blog-header py-3">
+    <h1>Producer</h1>
+  </header>
+{% endblock %}
+
+{% block main_body %}
+
+ <body>
+
+       <table class="table table-dark">
+           <thead>
+               <tr>
+                   <th>Name</th>
+                   <th>City</th>
+                   <th>State</th>
+                   <th>Country</th>
+                   <th>Actions</th>
+               </tr>
+           </thead>
+           <tbody>
+             {% for producer in list_of_producer %}
+                 <tr>
+                   <td>{{ producer.name}}</td>
+                   <td>{{ producer.city }}</td>
+                   <td>{{ producer.state}}</td>
+                   <td>{{ producer.country}}</td>
+                   <td><a class="btn btn-info" href="{% url 'edit_producer' producer.id %}">Edit</a>
+                       <a class="btn btn-danger" href="{% url 'delete_producer' producer.id %}">Delete</a>
+                   </td>
+               </tr>
+                {% endfor %}
+           </tbody>
+       </table>
+       <a class="btn btn-primary" href="{% url 'add_producer'%}">Add Producer</a>
+       <br>
+       <br>
+
+ </body>
+ </html>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "site_base.html" %}
+{% load static %}
+
+{% block page_title %}Song{% endblock %}
+
+{% block page_heading %}
+  <header class="blog-header py-3">
+    <h1>Song</h1>
+  </header>
+{% endblock %}
+
+{% block main_body %}
+
+ <body>
+
+       <table class="table table-dark">
+           <thead>
+               <tr>
+                   <th>Title</th>
+                   <th>Year</th>
+                   <th>Artist</th>
+                   <th>Producer</th>
+                   <th>Actions</th>
+               </tr>
+           </thead>
+           <tbody>
+             {% for song in list_of_songs %}
+                 <tr>
+                   <td>{{ song.title}}</td>
+                   <td>{{ song.year }}</td>
+                   <td>
+                     <ul>
+                      {% for artist in song.artist.all %}
+                       <li>{{artist.name}}</li>
+                      {% endfor %}
+                    </ul>
+                   </td>
+                   <td>{{ song.producer.name}}</td>
+                   <td><a class="btn btn-info" href="{% url 'edit_song'  song.id %}">Edit</a>
+                       <a class="btn btn-danger" href="{% url 'delete_song' song.id %}">Delete</a>
+                   </td>
+               </tr>
+            {% endfor %}
+           </tbody>
+       </table>
+       <a class="btn btn-primary" href="{% url 'add_song'%}">Add Song</a>
+       <br>
+       <br>
+
+ </body>
+ </html>
+{% endblock %}

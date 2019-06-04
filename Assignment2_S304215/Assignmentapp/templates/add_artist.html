@@ -1,0 +1,21 @@
+{% extends "site_base.html" %}
+{% load static %}
+
+{% block page_title %}Add Artist{% endblock %}
+
+{% block page_heading %}
+  <header class="blog-header py-3">
+    <h1>Add Artist</h1>
+  </header>
+{% endblock %}
+
+{% block main_body %}
+ <form action = "{% url 'add_artist'%}" method="POST" novalidate>
+   {% csrf_token%}
+   <table>
+     {{ my_form.as_table}}
+    </table>
+    <br>
+    <input type="submit" value="Add Artist">
+    <br>
+{% endblock %}
