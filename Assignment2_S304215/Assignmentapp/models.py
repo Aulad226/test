@@ -22,6 +22,7 @@ class Song(models.Model):
     title=models.CharField(max_length=30)
     year=models.DateField()
     artist=models.ManyToManyField(Artist)
-    producer=models.ForeignKey(Producer)
+    producer=models.ForeignKey('Producer',
+                    on_delete=models.CASCADE,)
     def __str__(self):
         return self.title
