@@ -1,0 +1,4 @@
+Use CMD
+Activate the folder using "cd"
+Python manage.py runserver
+Put the link on the web server
